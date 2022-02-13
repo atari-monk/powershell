@@ -1,0 +1,1 @@
+cd C:\kmazanek@gmail.com\Code\powershell

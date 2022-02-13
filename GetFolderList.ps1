@@ -1,0 +1,1 @@
+Get-ChildItem -Path "C:\kmazanek@gmail.com\Code" -Directory -Force -ErrorAction SilentlyContinue | Select-Object Name
