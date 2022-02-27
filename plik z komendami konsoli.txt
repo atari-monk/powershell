@@ -1,0 +1,5 @@
+1) 
+kopiowanie fotek
+copy D:\MyPictures\*.jpg "C:\Documents and Settings\Krzysztof\Pictures"
+copy F:\Windows phone\Phone\Pictures\Camera Roll\*.jpg "C:\Documents and Settings\Krzysztof\Pictures\tmp1"
+copy "F:\Phone\Pictures\Camera Roll\*.jpg" "C:\Documents and Settings\Krzysztof\Pictures\tmp1"

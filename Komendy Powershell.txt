@@ -1,0 +1,60 @@
+﻿#odblokowanie uruchamiania skryptów
+Set-ExecutionPolicy Unrestricted
+#odpowiedz ->a
+
+#wyświetla wszystkie urządzenia do pliku, 
+#> nadpisuje, >> append-uje 
+Get-WmiObject Win32_USBControllerDevice | Foreach-Object { [Wmi]$_.Dependent } > devices.txt
+
+#z filtrowaniem
+Get-WmiObject Win32_USBControllerDevice | Foreach-Object { [Wmi]$_.Dependent } | Group-Object Manufacturer
+
+#kopiuje 5 losowych odcinków serialu z folderu w którym jest ten serial
+#do folderu na pulpicie
+clear
+cd $HOME/Desktop
+#echo 1
+rmdir odcinkiX
+#echo 2
+mkdir odcinkiX
+#echo 3
+cd "E:\Torrents\Married With Children Complete Series H264 AAC"
+#echo 4
+copy $(Get-ChildItem | Select -exp Name | Sort-Object {Get-Random} | Select -Last 5) $HOME/Desktop/odcinkiX  
+#echo 5
+
+#kopiowanie fotek z pulpit/fotki do C:\Users\Krzysztof Mazanek\Documents\Temp\fotki
+move "C:\Users\Krzysztof Mazanek\Desktop\fotki\*" "C:\Users\Krzysztof Mazanek\Documents\Temp\fotki\"
+
+#kopiowanie wszystkich jpg z folderu nieposortowane do folderu fotki
+$sourcePath="C:\Users\Krzysztof Mazanek\Documents\Temp\tosort"
+$targetPath="C:\Users\Krzysztof Mazanek\Documents\Temp\fotki\"
+Get-ChildItem -Recurse -Path $sourcePath\*.jpg | Move-Item -destination $targetPath
+
+#Pomoc komendy Sqlcmd
+Sqlcmd -?
+Sqlcmd -S "(LocalDb)\MSSQLLocalDB"
+Sqlcmd -S "(LocalDb)\MSSQLLocalDB" -Q "select * from [WorkTimeRegister].[dbo].[projects]"
+
+#procesy
+Get-Process
+
+#
+(Get-Date (Get-Process explorer).StartTime).ToString('hhmmss')
+
+#
+New-TimeSpan -Start (get-process explorer).StartTime
+
+#
+Get-ChildItem -Path E:\music\Santana -Recurse -File | sort length –Descending
+
+#
+taskkill /f /im excel.exe
+
+#uruchomienie ze skrótu w folderze, wpisać przy tworzeniu srótu (słabe)
+powershell.exe -noexit -command "cd 'C:\Users\Krzysztof Mazanek\Documents\Skrypty\PowerShell\'"
+
+https://blogs.technet.microsoft.com/heyscriptingguy/2014/05/14/use-powershell-to-create-job-that-runs-at-startup/
+
+#
+taskkill /f /im excel.exe
