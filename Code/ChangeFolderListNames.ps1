@@ -20,6 +20,7 @@ $hashTable.Add("UnityContainer.Examples", "unitycontainer-examples")
 $hashTable.Add("ModelHelper", "model-helper")
 $hashTable.Add("EFCoreHelper", "efcore-helper")
 $hashTable.Add("GitPath", "git-path")
+
 foreach ($oldName in $hashTable.keys)
 {
   $oldPath = $code + $oldName
