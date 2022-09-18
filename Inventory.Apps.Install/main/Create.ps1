@@ -1,4 +1,4 @@
-Write-Output "$component Create"
+Write-Output "$mainName Create"
 if (-not (Test-Path $mainPath))
 {
 $null = New-Item -Path $rootPath -Name $mainFolder -ItemType "directory"

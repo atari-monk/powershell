@@ -11,5 +11,5 @@ $apiDeletePath = $apiPath + "\*"
 
 $apiExeOldName = "Inventory.Min.Api.exe"
 $apiExeOldPath = $apiPath + "\" + $apiExeOldName
-$apiExeNewName = "Stuff.Api.exe"
+$apiExeNewName = "$appName.Api.exe"
 $apiExePath = $apiPath + "\" + $apiExeNewName

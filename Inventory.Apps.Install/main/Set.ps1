@@ -1,7 +1,7 @@
-$component = "Main"
+$mainName = "Main"
 
-Write-Output "$component Set"
+Write-Output "$mainName Set"
 
 $rootPath = "C:\kmazanek.gmail.com\Apps"
-$mainFolder = "Stuff"
+$mainFolder = $appName
 $mainPath = $rootPath + "\" + $mainFolder

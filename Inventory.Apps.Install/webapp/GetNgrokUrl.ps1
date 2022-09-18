@@ -5,7 +5,7 @@ $auth = "Bearer $apikey"
 $result = Invoke-WebRequest $get -Headers @{'Authorization' = $auth; 'Ngrok-Version' = '2'}
 $out = $result.Content | Out-String | ConvertFrom-Json 
 foreach ($tunnel in $out.tunnels) {
-    if ( $tunnel.forwards_to -match ".*https://localhost:5026.*" ) {
+    if ( $tunnel.forwards_to -match ".*$webAppLocalhost.*" ) {
 		$text = $tunnel.forwards_to + "->" + $tunnel.public_url
         write-host $text
 		Out-File -FilePath .\Stuff.txt -InputObject $text
