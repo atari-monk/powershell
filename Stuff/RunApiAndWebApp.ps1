@@ -7,3 +7,6 @@ Write-Output "Run Api And WebApp"
 
 . ".\webapp\Set.ps1"
 . ".\webapp\Run.ps1"
+. ".\webapp\RunNgrok.ps1"
+. ".\webapp\GetNgrokUrl.ps1"
+. ".\webapp\CopyNgrokUrl.ps1"
