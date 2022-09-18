@@ -8,6 +8,6 @@ foreach ($tunnel in $out.tunnels) {
     if ( $tunnel.forwards_to -match ".*$webAppLocalhost.*" ) {
 		$text = $tunnel.forwards_to + "->" + $tunnel.public_url
         write-host $text
-		Out-File -FilePath .\Stuff.txt -InputObject $text
+		Out-File -FilePath .\$appName.txt -InputObject $text
     }   
 }
