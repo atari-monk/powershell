@@ -104,7 +104,8 @@ foreach ($proj in $projs)#[0])
         Set-Location $projPath
         $actualOrigin = git remote -v
         $actualOrigin = $actualOrigin[0]
-        $actualOrigin = $actualOrigin.substring(7, $expectedOrigin.Length)
+        $actualOrigin = $actualOrigin.Remove(0,7)
+        $actualOrigin = $actualOrigin -replace ".{8}$"
         #Write-Output "  Actual:$actualOrigin"
         if(-not ($actualOrigin.Equals($expectedOrigin)))
         {

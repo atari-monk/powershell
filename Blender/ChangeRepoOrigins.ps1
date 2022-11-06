@@ -14,7 +14,8 @@ $projs = @(
 $urlStart = "https://github.com/atari-monk/"
 $urlEnd = ".git"
 Set-Location $blender
-foreach ($proj in $projs) { 
+foreach ($proj in $projs)#[0])
+{ 
     $projPath = $blender + "\" + $proj
     if (-not (Test-Path $projPath)) {
         Write-Output "No Proj: $projPath"
