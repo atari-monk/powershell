@@ -1,4 +1,4 @@
-#CloneGitHubRepoFromList
+#CloneGitHubReposFromList
 #Clones github repos from the provided list
 $root = "C:\atari-monk"
 $code = $root + "\Code"
