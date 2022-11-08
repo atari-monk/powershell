@@ -3,7 +3,7 @@
 $root = "C:\atari-monk"
 $blender = $root + "\Blender"  
 $code = $root + "\Code"
-$script = $code + "\powershell\Code"
+$script = $code + "\powershell\Blender"
 $projs = @(
     "blender-cabin"
     "blender-diy-box"
