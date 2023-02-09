@@ -13,6 +13,8 @@ $projs = @(
 "js-pong"
 "js-pong-page"
 "js-web-tutorial"
+"js-notes"
+"js-course"
 "microservices"
 "net-billiards"
 "net-cli"
