@@ -1,0 +1,55 @@
+please write me a powershel script that will open powershel on system start and provide me with list of commands that can be bind to run scripts from my folder with scripts, commands sould also have help
+ChatGPT
+Sure, here's a PowerShell script that will open PowerShell on system start and display a list of commands that can be used to run scripts from a specified folder:
+
+php
+Copy code
+# Set the path to your script folder
+$ScriptFolder = "C:\Path\To\Your\Script\Folder"
+
+# Create a function to display the list of available scripts
+function Show-ScriptList {
+    Write-Host "Available Scripts:"
+    Write-Host ""
+
+    # Get a list of all PowerShell scripts in the specified folder
+    $Scripts = Get-ChildItem -Path $ScriptFolder -Filter *.ps1
+
+    # Loop through the list of scripts and display their names and descriptions
+    foreach ($Script in $Scripts) {
+        # Get the script name without the extension
+        $ScriptName = $Script.Name.Replace(".ps1", "")
+
+        # Get the script description
+        $ScriptDescription = Get-Content -Path $Script.FullName | Select-String -Pattern "# Description:" | ForEach-Object { $_.ToString().Replace("# Description:", "").Trim() }
+
+        # Display the script name and description
+        Write-Host "$ScriptName - $ScriptDescription"
+    }
+}
+
+# Add a shortcut to this script to the Windows startup folder
+$StartupFolder = [Environment]::GetFolderPath("Startup")
+$ShortcutFile = "$StartupFolder\PowerShell Scripts.lnk"
+$WScriptShell = New-Object -ComObject WScript.Shell
+$Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
+$Shortcut.TargetPath = "powershell.exe"
+$Shortcut.Arguments = "-noexit -command Show-ScriptList"
+$Shortcut.Save()
+
+# Display the list of available scripts
+Show-ScriptList
+Save this script with a .ps1 extension and update the $ScriptFolder variable to point to your script folder. Then, run the script to add a shortcut to the Windows startup folder and display the list of available scripts.
+
+The script uses a function called Show-ScriptList to display the list of available scripts. This function uses the Get-ChildItem cmdlet to get a list of all PowerShell scripts in the specified folder, and then loops through the list to display the name and description of each script. The script description is read from the comments in the script file using the Get-Content cmdlet and the Select-String cmdlet.
+
+The script also adds a shortcut to the Windows startup folder that runs the Show-ScriptList function when PowerShell is opened. This ensures that the list of available scripts is always displayed when you start your computer.
+
+
+
+
+
+User
+thank you
+ChatGPT
+You're welcome! If you have any more questions or if there's anything else I can help you with, feel free to ask.
